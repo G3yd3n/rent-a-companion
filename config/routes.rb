@@ -8,9 +8,6 @@ Rails.application.routes.draw do
 
   resources :bookings, only: [:index, :destroy]
 
-  get "bookings/:id/pending", to: "bookings#accept", as: :pending_bookings
-  patch "bookings/:id", to: "bookings#update"
-
-  get "bookings/:id/pending", to: "bookings#reject"
+  get "bookings/:id/pending_status", to: "bookings#status", as: :booking_status
   patch "bookings/:id", to: "bookings#update"
 end
