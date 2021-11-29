@@ -10,10 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_27_095659) do
+ActiveRecord::Schema.define(version: 2021_11_29_133026) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.date "date"
+    t.time "time"
+    t.bigint "user_id", null: false
+    t.integer "price"
+    t.boolean "accepted"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "companion_id"
+    t.index ["companion_id"], name: "index_bookings_on_companion_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "companions", force: :cascade do |t|
+    t.integer "price"
+    t.text "description"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_companions_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +45,13 @@ ActiveRecord::Schema.define(version: 2021_11_27_095659) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "first_name", default: ""
+    t.string "last_name", default: ""
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookings", "companions"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "companions", "users"
 end
