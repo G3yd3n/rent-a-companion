@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :users do
     resources :bookings, only: [:create, :new]
   end
-
+  resources :companions
   resources :bookings, only: [:index, :destroy]
 
   get "bookings/:id/pending_status", to: "bookings#status", as: :booking_status
