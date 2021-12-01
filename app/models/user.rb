@@ -7,4 +7,5 @@ class User < ApplicationRecord
   has_one :companion
   validates :first_name, presence: true
   validates :last_name, presence: true
+  accepts_nested_attributes_for :companion, update_only: true
 end
