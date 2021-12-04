@@ -1,5 +1,12 @@
-<%= simple_form_for(@companion) do |f| %>
-  <%= f.input :description%>
-  <%= f.input :price %>
-  <%= f.submit %>
-<% end %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-5 col-sm-12 mt-3 ">
+      <h1>Edit Companion</h1>
+      <%= form_for @companion, :html => {:class => 'form-horizontal center'} do |form| %>
+        <%= form.text_field :description %>
+        <%= form.text_field :price %>
+        <%= form.submit %>
+      <% end %>
+    </div>
+  </div>
+</div>

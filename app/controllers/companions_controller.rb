@@ -13,7 +13,6 @@ class CompanionsController < ApplicationController
     redirect_to root_path
   end
 
-
   private
   def companion_params
     params.require(:companion).permit(:description, :price)
