@@ -1,7 +1,16 @@
-<h2>Do you want to become a Companion? click Yes if you want, click No otherwise</h2>
-<%= simple_form_for(@companion) do |f| %>
-  <%= f.input :description%>
-  <%= f.input :price %>
-  <%= f.submit 'Yes, become companion' %>
-  <%= f.submit 'No, thanks!' %>
-<% end %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <h2>Do you want to become a Companion? click Yes if you want, click No otherwise</h2>
+      <%= simple_form_for(@companion) do |f| %>
+        <%= f.input :description%>
+        <%= f.input :price %>
+        <%= f.submit 'Yes, become a companion' %>
+      <% end %>
+      <div class="pt-3">
+          <%= link_to "No, I'm looking for companion", companions_path, class: "btn btn-primary"%>
+      </div>
+    </div>
+
+  </div>
+</div>
