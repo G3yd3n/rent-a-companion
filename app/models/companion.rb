@@ -7,4 +7,5 @@ class Companion < ApplicationRecord
   validates :price, numericality: { only_integer: true }
   validates :user_id, uniqueness: true
   has_many_attached :photos
+  validates :photos, presence: true
 end
