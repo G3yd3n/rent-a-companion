@@ -3,13 +3,16 @@ class CompanionsController < ApplicationController
     @companions = Companion.all
   end
 
+  def show
+    @companion = Companion.find(params[:id])
+  end
+
   def edit
     @companion = Companion.find(params[:id])
   end
 
   def update
     @companion = Companion.find(params[:id])
-    # binding.pry
     @companion.update(companion_params)
     redirect_to root_path
   end
