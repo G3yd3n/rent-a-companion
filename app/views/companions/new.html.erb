@@ -1,0 +1,7 @@
+<h2>Do you want to become a Companion? click Yes if you want, click No otherwise</h2>
+<%= simple_form_for(@companion) do |f| %>
+  <%= f.input :description%>
+  <%= f.input :price %>
+  <%= f.submit 'Yes, become companion' %>
+  <%= f.submit 'No, thanks!' %>
+<% end %>

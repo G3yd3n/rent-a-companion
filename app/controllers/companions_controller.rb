@@ -17,6 +17,19 @@ class CompanionsController < ApplicationController
     redirect_to root_path
   end
 
+  def create
+    @companion = Companion.new(companion_params)
+    @companion.user_id = current_user.id
+    if @companion.save
+      redirect_to companions_path
+    else
+      puts "can't be save!!!!!!!!"
+    end
+  end
+
+  def new
+    @companion = Companion.new
+  end
 
   private
   def companion_params
