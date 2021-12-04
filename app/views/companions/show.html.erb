@@ -1,9 +1,12 @@
-<h4>This is a companion's page!</h4>
-
-<% @companion.photos.each do |photo| %>
-  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-<% end %>
-<h1><%= @companion.user.first_name %> <%= @companion.user.last_name%>
-
-<p><%= link_to "Let's have a chat", new_companion_booking_path(@companion) %><p>
-<p><%= link_to 'Edit your details', edit_companion_path() %><p>
+<div class="container">
+  <div class="row justify-content-center">
+    <% @companion.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+    <% end %>
+    <h1><%= @companion.user.first_name %> <%= @companion.user.last_name%>
+      <p><%= link_to "Let's have a chat", new_companion_booking_path(@companion) %>
+        <p>
+          <p><%= link_to 'Edit your details', edit_companion_path() %>
+            <p>
+    </div>
+</div>
