@@ -5,4 +5,5 @@ class Companion < ApplicationRecord
   validates :description, length: { minimum: 50,
     too_long: "%{count} characters is the maximum allowed" }
   validates :price, numericality: { only_integer: true }
+  validates :user_id, uniqueness: true
 end

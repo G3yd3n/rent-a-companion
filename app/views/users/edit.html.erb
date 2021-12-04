@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-5 col-sm-12 mt-3 ">
+      <h1>Edit User</h1>
+      <%= form_for @user, :html => {:class => 'form-horizontal center'} do |form| %>
+        <%= form.text_field :first_name %>
+        <%= form.text_field :last_name %>
+        <%= form.fields_for :companion, include_id: false do |companion_subform| %>
+          <%= companion_subform.text_field :description %>
+          <%= companion_subform.text_field :price %>
+        <% end %>
+        <%= form.submit %>
+      <% end %>
+    </div>
+  </div>
+</div>
