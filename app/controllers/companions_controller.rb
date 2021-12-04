@@ -23,7 +23,7 @@ class CompanionsController < ApplicationController
     if @companion.save
       redirect_to companions_path
     else
-      puts "can't be save!!!!!!!!"
+      render :new
     end
   end
 
