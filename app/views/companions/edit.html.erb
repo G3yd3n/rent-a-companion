@@ -1,5 +1,6 @@
 <%= simple_form_for(@companion) do |f| %>
   <%= f.input :description%>
   <%= f.input :price %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <%= f.submit %>
 <% end %>

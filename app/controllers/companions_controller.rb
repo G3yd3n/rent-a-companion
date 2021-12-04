@@ -33,6 +33,6 @@ class CompanionsController < ApplicationController
 
   private
   def companion_params
-    params.require(:companion).permit(:description, :price)
+    params.require(:companion).permit(:description, :price, photos: [])
   end
 end
