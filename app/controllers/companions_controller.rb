@@ -3,6 +3,10 @@ class CompanionsController < ApplicationController
     @companions = Companion.all
   end
 
+  def show
+    @companion = Companion.find(params[:id])
+  end
+
   def edit
     @companion = Companion.find(params[:id])
   end

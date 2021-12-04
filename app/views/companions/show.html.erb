@@ -1,1 +1,5 @@
 <h4>This is a companion's page!</h4>
+
+<h1><%= @companion.user.first_name %> <%= @companion.user.last_name%>
+
+<p><%= link_to "Let's have a chat", new_companion_booking_path(@companion) %><p>
