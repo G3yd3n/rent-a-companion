@@ -9,7 +9,6 @@ class CompanionsController < ApplicationController
 
   def update
     @companion = Companion.find(params[:id])
-    # binding.pry
     @companion.update(companion_params)
     redirect_to root_path
   end

@@ -1,4 +1,3 @@
-require 'pry-byebug'
 class UsersController < ApplicationController
 
   def new
@@ -23,7 +22,6 @@ class UsersController < ApplicationController
       p "Not a companion!"
       p "provide to create companion"
     end
-    # binding.pry
   end
 
   def destroy
@@ -31,7 +29,6 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    # binding.pry
     @user.update(user_params)
     redirect_to root_path
   end
