@@ -1,6 +1,7 @@
 class CompanionsController < ApplicationController
   def index
     @companions = Companion.all
+    @random_companion = Companion.order('random()').first
   end
 
   def show

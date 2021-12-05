@@ -1,4 +1,8 @@
-<h1>All of our lovely companions!</h1>
+<h1 class="text-center">All of our lovely companions!</h1>
+<div class="d-flex justify-content-center">
+<div class="btn btn-success text-center"><%= link_to "Random", @random_companion %></div>
+</div>
+<p>
 <div class="container">
   <div class="row">
   <%= render @companions %>
