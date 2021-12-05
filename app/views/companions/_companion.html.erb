@@ -1,11 +1,11 @@
-<div class="col-12 col-md-4 col-xl-3">
-  <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="https://source.unsplash.com/random/?headshot" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title"><%= companion.user.first_name %></h5>
-      <p class="card-text"><%= companion.description %></p>
-      <p class="card-text">$<%= companion.price %> per day</p>
-      <%= link_to 'More details', companion_path(companion) %>
+<div class="card-trip">
+  <img src="https://source.unsplash.com/random/?headshot" alt="Card image cap" />
+  <div class="card-trip-infos">
+    <div>
+      <h2><%= companion.user.first_name %></h2>
+      <p>description goes here</p>
+      <p><%= link_to "more details", companion_path(companion)  %></p>
     </div>
+    <h2 class="card-trip-pricing">S$<%= companion.price %> /day</h2>
   </div>
 </div>
