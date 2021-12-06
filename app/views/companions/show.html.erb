@@ -1,9 +1,17 @@
-<h4>This is a companion's page!</h4>
-
-<% @companion.photos.each do |photo| %>
-  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-<% end %>
-<h1><%= @companion.user.first_name %> <%= @companion.user.last_name%>
-
-<p><%= link_to "Let's have a chat", new_companion_booking_path(@companion) %><p>
-<p><%= link_to 'Edit your details', edit_companion_path() %><p>
+<div class="container" style= "width: 800px">
+  <div class="card-trip" >
+    <img style="height: 200px; width: 300px;" src="https://source.unsplash.com/random/?headshot" alt="Card image cap" />
+    <div>
+      <% @companion.photos.each do |photo| %>
+        <%= cl_image_tag photo.key, height: 200, width: 300, crop: :fill %>
+      <% end %>
+    </div>
+    <div class="card-trip-infos">
+      <div>
+        <h2><%= @companion.user.first_name %>, <%= @companion.user.last_name%></h2>
+        <p><%= @companion.description %></p>
+        <p><%= link_to "Let's have a chat", new_companion_booking_path(@companion) %></p>
+      </div>
+    </div>
+  </div>
+</div>
