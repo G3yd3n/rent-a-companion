@@ -1,15 +1,19 @@
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-5 col-sm-12 mt-3 ">
-      <h1>Edit User</h1>
-      <%= form_for @user, :html => {:class => 'form-horizontal center'} do |form| %>
-        <%= form.text_field :first_name %>
-        <%= form.text_field :last_name %>
-        <%= form.fields_for :companion, include_id: false do |companion_subform| %>
-          <%= companion_subform.text_field :description %>
-          <%= companion_subform.text_field :price %>
+    <div class="col-6 col-sm-12">
+      <%= simple_form_for @user do |f| %>
+        <%= f.input :first_name %>
+        <%= f.input :last_name %>
+        <%= f.simple_fields_for :companion do |companion_subform| %>
+          <%= companion_subform.input :description %>
+          <%= companion_subform.input :price %>
+          <%= companion_subform.input :photos, as: :file, input_html: { multiple: true } %>
+          <%= f.button :submit, class: "btn btn-primary"%>
+          <p class="pb-5">Current Pictures</p>
+          <%  companion_subform.object.photos.each do |photo| %>
+            <%= image_tag(photo, size: "300x400") %>
+          <% end  %>
         <% end %>
-        <%= form.submit %>
       <% end %>
     </div>
   </div>
