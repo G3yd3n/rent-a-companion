@@ -1,15 +1,23 @@
 class BookingsController < ApplicationController
 
-  # we only need this to display the list of bookings
+   # Current user will only see their own bookings
   def index
-    @bookings = Booking.all
+    # @bookings = Booking.all
+    @user = current_user
+    @booking = policy_scope(Booking)
+    @user_bookings = @booking.select do |booking|
+      booking.user_id = @user
+    end
+    authorize @booking
   end
 
+  # All users can create a booking with a companion
   def new
     @companion = Companion.find(params[:companion_id])
     @booking = Booking.new(params[:booking])
   end
 
+  #
   def create
     @booking = Booking.new(booking_params)
     @companion = Companion.find(params[:companion_id])
@@ -18,18 +26,16 @@ class BookingsController < ApplicationController
     @booking.price = @companion.price
     @booking.accepted = false
     @booking.save
-      redirect_to user_bookings_path(@user)
+    authorize @booking
+    redirect_to bookings_path(@bookings)
   end
 
-  def show
-    @bookings = Bookings.find(params[:id])
+  # Companion to approve booking requests
+  def approve
+    @booking = Booking.find(params[:id])
+    @booking.accepted = true
+    @booking.save
   end
-
-  # def approve
-  #   @booking = Booking.find(params[:id])
-  #   @booking.accepted = true
-  #   @booking.save
-  # end
 
   private
 
