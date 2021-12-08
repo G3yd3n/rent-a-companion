@@ -6,8 +6,9 @@ class BookingsController < ApplicationController
     @user = current_user
     @booking = policy_scope(Booking)
     @user_bookings = @booking.select do |booking|
-      booking.user_id = @user
+      booking.user_id == @user
     end
+    raise
     authorize @booking
   end
 
