@@ -37,6 +37,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:first_name, :last_name, companion_attributes:[:description, :price])
+    params.require(:user).permit(:first_name, :last_name, companion_attributes:[:description, :price, photos: []])
   end
 end

@@ -1,5 +1,5 @@
 <div class="card-trip">
-  <img src="https://source.unsplash.com/random/?headshot" alt="Card image cap" />
+<%= image_tag("https://source.unsplash.com/random/?headshot?#{rand(1..100)}") %>
   <div class="card-trip-infos">
     <div>
       <h2><%= companion.user.first_name %></h2>
