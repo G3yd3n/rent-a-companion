@@ -13,6 +13,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def user_bookings
+    @user = User.find(params[:id])
+    @bookings = @user.bookings
+  end
+
   def edit
     @user = User.find(params[:id])
     @companion = Companion.where(user_id: @user.id)
@@ -22,9 +27,6 @@ class UsersController < ApplicationController
       p "Not a companion!"
       p "provide to create companion"
     end
-  end
-
-  def destroy
   end
 
   def update

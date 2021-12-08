@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
 
+  # we only need this to display the list of bookings
   def index
     @bookings = Booking.all
   end
@@ -15,14 +16,20 @@ class BookingsController < ApplicationController
     @booking.companion = @companion
     @booking.user = current_user
     @booking.price = @companion.price
-    @booking.accepted = true
+    @booking.accepted = false
     @booking.save
-      redirect_to bookings_path
+      redirect_to user_bookings_path(@user)
   end
 
   def show
     @bookings = Bookings.find(params[:id])
   end
+
+  # def approve
+  #   @booking = Booking.find(params[:id])
+  #   @booking.accepted = true
+  #   @booking.save
+  # end
 
   private
 
