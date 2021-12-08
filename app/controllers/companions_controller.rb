@@ -1,6 +1,16 @@
 class CompanionsController < ApplicationController
   def index
-    @companions = Companion.all
+    # if params[:query].present?
+    #   @companions = Companion.where("first_name ILIKE ?", "%#{params[:query]}%")
+    if params[:query].present?
+      sql_query = " \
+        users.first_name @@ :query \
+        OR users.last_name @@ :query \
+      "
+      @companions = Companion.joins(:user).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @companions = Companion.all
+    end
   end
 
   def show

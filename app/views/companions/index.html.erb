@@ -1,5 +1,14 @@
     <%= render 'shared/jumbotron' %>
 <div class="container">
+<%= form_tag companions_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a buddy"
+  %>
+  <%= submit_tag "Search", class: "btn btn-warning" %>
+<p>
+<% end %>
   <div class="cards">
     <%= render @companions %>
   </div>
