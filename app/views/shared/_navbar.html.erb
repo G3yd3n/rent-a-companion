@@ -22,6 +22,9 @@
           <% end %>
           <%= link_to "Suprise me?", companion_path(@ids.sample), class: "nav-link btn btn-success m-2" %>
         </li>
+        <li>
+          <%= link_to "My Bookings", bookings_path(@bookings), class: "nav-link btn btn-success m-2" %>
+        </li>
         <li class="nav-item dropdown">
         <img class="avatar dropdown-toggle m-2" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">

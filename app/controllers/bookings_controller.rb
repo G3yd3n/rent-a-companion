@@ -5,10 +5,9 @@ class BookingsController < ApplicationController
     # @bookings = Booking.all
     @user = current_user
     @booking = policy_scope(Booking)
-    @user_bookings = @booking.select do |booking|
-      booking.user_id == @user
-    end
-    raise
+    # @user_bookings = @booking.select do |booking|
+    #   booking.user_id == @user
+    # end
     authorize @booking
   end
 
@@ -31,11 +30,19 @@ class BookingsController < ApplicationController
     redirect_to bookings_path(@bookings)
   end
 
-  # Companion to approve booking requests
-  def approve
+  # Only companions can approve booking requests
+  def accept
     @booking = Booking.find(params[:id])
-    @booking.accepted = true
-    @booking.save
+    @user = current_user
+      # If the companion_id of a booking matches the current user's companion id
+      if @booking.companion_id == @user.companion_id
+        @booking.accepted = true
+        @booking.save
+      else
+        puts "??????"
+      end
+    authorize @booking
+    redirect_to bookings_path(@bookings)
   end
 
   private

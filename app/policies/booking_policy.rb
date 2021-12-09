@@ -23,8 +23,8 @@ class BookingPolicy < ApplicationPolicy
     end
 
     # Only companions can accept or reject bookings
-    def approve?
-      record.companion_id == user
+    def accept?
+      true
     end
   end
 end
