@@ -36,6 +36,10 @@ class ApplicationPolicy
     false
   end
 
+  def accept?
+    @user = @record.companion_id
+  end
+
   class Scope
     def initialize(user, scope)
       @user = user

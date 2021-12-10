@@ -1,0 +1,16 @@
+<div>
+  <% @seeker_bookings.each do |booking| %>
+  <div class="card-product">
+    <%= image_tag("https://source.unsplash.com/random/?adult?face?#{rand(1..100)}") %>
+    <div class="card-product-infos">
+      <h2><%= booking.companion.user.first_name %></h2>
+      <p>Product description with <strong>relevant info</strong> only.</p>
+      <% if booking.accepted == true %>
+        <p class="btn btn-flat">Accepted</p>
+      <% else %>
+        <p class="btn btn-gradient">Pending</p>
+      <% end %>
+    </div>
+  </div>
+  <%end%>
+</div>

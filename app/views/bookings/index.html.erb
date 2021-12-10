@@ -1,24 +1,21 @@
-<div class="col-12 col-md-4 col-xl-3 container-fluid align-justify-center">
-  <h1>Here are all current bookings of <%= current_user.first_name %></h1>
-  <h2>Here are your pending bookings</h2>
-  <div class="card" style="width: 18rem;">
-    <div class="card-body">
-      <h3><% current_user.bookings.each do |booking| %>
-        <%if booking.accepted == false %>
-          <h3 class="card-title"><%= booking.user.first_name %></h3>
-          <img class="card-img-top" src="https://source.unsplash.com/random/?headshot" alt="Card image cap">
-        <h5 class="card-title"><%= booking.user.first_name %></h5>
-      <img class="card-img-top" src="https://source.unsplash.com/random/?headshot" alt="Card image cap">
-      <h5 class="card-title"><%= booking.companion.user.first_name %></h5>
-      <h5 class="card-title"><%= booking.accepted %></h5>
-      <% end %>
-    </div>
-
-      <%# <h3>Here are your confirmed bookings</h3>
-      <% else booking.accepted == false %> %>
-
-
-
-
-  </div>
+<div class="container col-sm-6">
+  <ul class="list-inline tabs-underlined">
+    <li>
+      <a href="#" class="tab-underlined active">Seeker Bookings</a>
+    </li>
+    <% if current_user.companion.present? %>
+      <li>
+        <a href="" class="tab-underlined">Companion Bookings</a>
+      </li>
+    <% else %>
+      <li>
+      </li>
+    <% end %>
+    <li>
+      <a href="#" class="tab-underlined">Conversations</a>
+    </li>
+  </ul>
+</div>
+<div class="cards">
+  <%= render "seekerbooking" %>
 </div>

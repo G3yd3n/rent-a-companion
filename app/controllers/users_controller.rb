@@ -11,12 +11,14 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @bookings = Booking.where(user_id: @user_id)
   end
 
   def user_bookings
     @user = User.find(params[:id])
-    @bookings = @user.bookings
+    @bookings = user.bookings
   end
+
 
   def edit
     @user = User.find(params[:id])
