@@ -1,6 +1,7 @@
 class Companion < ApplicationRecord
   belongs_to :user
   has_many :bookings
+  has_many :reviews
   # validates :description, presence: true
   validates :description, length: { minimum: 10,
     too_long: "%{count} characters is the maximum allowed" }

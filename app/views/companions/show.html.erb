@@ -14,4 +14,10 @@
       </div>
     </div>
   </div>
+  <ul class="list-group">
+  <h4>Reviews for <%= @companion.user.first_name %></h4>
+  <% @companion.reviews.each do |review| %>
+    <li class="list-group-item"><%= review.content %></li>
+  <% end %>
+</ul>
 </div>

@@ -34,7 +34,7 @@ puts "Creating companions..."
 puts "****"*20
 
 5.times do
-  companion = Companion.create(
+  companion = Companion.create!(
     price: rand(5..10),
     description: Faker::TvShows::HowIMetYourMother.quote,
     user_id: User.all.sample.id
@@ -47,7 +47,7 @@ puts "Creating bookings..."
 puts "****"*20
 
 3.times do
-  booking = Booking.create(
+  booking = Booking.create!(
     date: Faker::Date.between(from: '2014-09-23', to: '2014-09-25'),
     time: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now),
     price: Faker::Number.decimal(l_digits: 2),
