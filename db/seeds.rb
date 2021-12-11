@@ -19,7 +19,7 @@ puts "****"*20
 puts "Creating users...."
 puts "****"*20
 
-10.times do
+3.times do
   user = User.create!(
     email: Faker::Internet.email,
     password: '#123abc',
@@ -33,7 +33,7 @@ puts "****"*20
 puts "Creating companions..."
 puts "****"*20
 
-5.times do
+2.times do
   companion = Companion.create(
     price: rand(5..10),
     description: Faker::TvShows::HowIMetYourMother.quote,
@@ -46,7 +46,7 @@ puts "****"*20
 puts "Creating bookings..."
 puts "****"*20
 
-3.times do
+1.times do
   booking = Booking.create(
     date: Faker::Date.between(from: '2014-09-23', to: '2014-09-25'),
     time: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now),
