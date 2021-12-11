@@ -1,12 +1,10 @@
-<div class="container">
-  <div class="card">
-    <img class="card-img-top" src="https://source.unsplash.com/random/?adult?face" alt="Card image cap">
-    <div class="card-body">
+<div class="container" style= "width: 800px">
+  <div class="card-trip" style= "width: 800px" >
+    <div>
+      <img class="card-img-top" src="https://source.unsplash.com/random/?adult?face" alt="Card image cap">
+    </div>
+    <div class="card-trip-infos">
       <div>
-        <h5 class="card-title"><%= @companion.user.first_name %></h5>
-        <p class="card-text"><%= @companion.description %></p>
-        <p class="card-text">$<%= @companion.price %> per day</p>
-      </div>
       <%= simple_form_for [ @companion, @booking ] do |f| %>
       <%= f.input :date, label: 'Enter date', as: :date, html5: true %>
       <%= f.submit "Submit booking", class: "btn btn-primary" %>

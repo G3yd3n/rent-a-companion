@@ -2,7 +2,7 @@
   <div class="card-trip" style= "width: 800px" >
     <div>
       <% @companion.photos.each do |photo| %>
-        <%= cl_image_tag photo.key, height: 200, width: 300, crop: :fill %>
+        <%= cl_image_tag photo.key, height: 100, width: 300, crop: :fill %>
       <% end %>
     </div>
     <div class="card-trip-infos">
