@@ -13,7 +13,7 @@ Rails.application.routes.draw do
       get 'accept'
     end
     collection do
-      get 'companion'
+      get 'companion', as: :bookings_as_companion
     end
   end
 end
