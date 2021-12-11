@@ -36,6 +36,10 @@ class ApplicationPolicy
     false
   end
 
+  def companion?
+    true
+  end
+
   def accept?
     @user = @record.companion_id
   end

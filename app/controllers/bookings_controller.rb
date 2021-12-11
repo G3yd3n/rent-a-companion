@@ -21,6 +21,15 @@ class BookingsController < ApplicationController
     authorize @bookings
   end
 
+  def companion
+    @bookings = policy_scope(Booking)
+    @user = current_user
+    @companion_bookings = @bookings.select do |booking|
+    booking.companion_id == @current_user.companion.id
+    end
+    authorize @bookings
+  end
+
   # All users can create a booking with companions
   def new
     @companion = Companion.find(params[:companion_id])
@@ -48,6 +57,14 @@ class BookingsController < ApplicationController
       # if @booking.companion_id == @user.companion_id
         @booking.accepted = true
         @booking.save
+    authorize @booking
+    redirect_to bookings_path(@bookings)
+  end
+
+  def delete
+    @booking = Booking.find(params[:id])
+    @user = current_user
+    @booking.destroy
     authorize @booking
     redirect_to bookings_path(@bookings)
   end

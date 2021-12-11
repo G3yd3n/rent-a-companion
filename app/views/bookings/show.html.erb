@@ -1,1 +1,16 @@
-<%= render "bookings" %>
+<div class="container" style= "width: 800px">
+  <div class="card-trip" style= "width: 800px" >
+    <div>
+      <% @companion.photos.each do |photo| %>
+        <%= cl_image_tag photo.key, height: 200, width: 300, crop: :fill %>
+      <% end %>
+    </div>
+    <div class="card-trip-infos">
+      <div>
+        <h2><%= @companion.user.first_name %>, <%= @companion.user.last_name%></h2>
+        <p><%= @companion.description %></p>
+        <p><%= link_to "Let's have a chat", new_companion_booking_path(@companion), class: "mt-3 btn btn-danger btn-sm" %></p>
+      </div>
+    </div>
+  </div>
+</div>
