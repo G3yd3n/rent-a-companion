@@ -3,11 +3,11 @@
 <div class="container col-sm-6">
   <ul class="list-inline tabs-underlined">
     <li>
-      <%= link_to "Seeker Bookings", bookings_path, class: "tab-underlined" %>
+      <%= link_to "Your requests", bookings_path, class: "tab-underlined" %>
     </li>
     <% if current_user.companion.present? %>
       <li>
-      <%= link_to "Companion Bookings", bookings_as_companion_bookings_path, class: "tab-underlined active" %>
+      <%= link_to "Received requests", bookings_as_companion_bookings_path, class: "tab-underlined active" %>
       </li>
     <% else %>
       <li>
