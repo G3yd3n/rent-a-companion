@@ -9,7 +9,7 @@ class ReviewsController < ApplicationController
     @companion = Companion.find(params[:companion_id])
     @review.companion = @companion
     @review.save
-    redirect_to root_path
+    redirect_to companion_path(@companion)
   end
 
   private
