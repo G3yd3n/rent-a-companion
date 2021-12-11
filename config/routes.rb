@@ -8,6 +8,9 @@ Rails.application.routes.draw do
     resources :bookings, only: [ :new, :create ]
   end
 
+  resources :companions do
+    resources :reviews, only: [:create, :new]
+  end
   resources :bookings, only: [ :index, :update, :destroy, :show] do
     member do
       get 'accept'

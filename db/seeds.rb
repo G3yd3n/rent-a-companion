@@ -33,6 +33,7 @@ puts "****"*20
 puts "Creating companions..."
 puts "****"*20
 
+
 2.times do
   companion = Companion.create(
     price: rand(5..10),
