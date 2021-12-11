@@ -1,5 +1,5 @@
 <div class="card-trip">
-  <div>
+  <div style="height: 400px">
     <% if companion.photos.attached? %>
       <% companion_profile_pic = companion.photos.first %>
       <%= cl_image_tag companion_profile_pic.key, height: 400, width: 270, crop: "fit" %>
