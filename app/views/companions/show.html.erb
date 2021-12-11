@@ -1,9 +1,8 @@
 <div class="container" style= "width: 800px">
   <div class="card-trip" >
-    <img style="height: 200px; width: 300px;" src="https://source.unsplash.com/random/?headshot" alt="Card image cap" />
     <div>
       <% @companion.photos.each do |photo| %>
-        <%= cl_image_tag photo.key, height: 200, width: 300, crop: :fill %>
+        <%= cl_image_tag photo.key, height: 400, width: 270, crop: :fit %>
       <% end %>
     </div>
     <div class="card-trip-infos">
