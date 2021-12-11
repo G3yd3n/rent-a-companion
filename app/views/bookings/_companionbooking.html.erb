@@ -1,0 +1,18 @@
+
+<% @companion_bookings.each do |booking| %>
+<div class="card-trip">
+<%= image_tag("https://source.unsplash.com/random/?adult?face?#{rand(1..100)}") %>
+    <div class="card-trip-infos">
+      <div>
+      <h2><%= booking.user.first_name %></h2>
+      <p>description goes here</p>
+      </div>
+      <% if booking.accepted == false %>
+        <% current_user.id == booking.companion.id %>
+        <p><%= link_to "Accept", accept_booking_path(booking.id) %></p>
+      <% else %>
+        <p class="btn btn-flat">Accepted</p>
+      <% end %>
+    </div>
+  </div>
+<% end%>

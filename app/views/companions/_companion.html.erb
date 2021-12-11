@@ -1,11 +1,21 @@
 <div class="card-trip">
-<%= image_tag("https://source.unsplash.com/random/?headshot?#{rand(1..100)}") %>
+  <div style="height: 400px">
+    <% if companion.photos.attached? %>
+      <% companion_profile_pic = companion.photos.first %>
+      <%= cl_image_tag companion_profile_pic.key, height: 400, width: 270, crop: "fit" %>
+    <% else %>
+      <img style="height: 200px; width: 300px;" src="https://source.unsplash.com/random/?headshot" alt="Card image cap" />
+    <% end %>
+  </div>
   <div class="card-trip-infos">
     <div>
       <h2><%= companion.user.first_name %></h2>
-      <p>description goes here</p>
+      <p><%= truncate companion.description, length: 30, separator: /\w+/ %></p>
       <p><%= link_to "more details", companion_path(companion)  %></p>
     </div>
     <h2 class="card-trip-pricing">S$<%= companion.price %> /day</h2>
   </div>
 </div>
+
+
+

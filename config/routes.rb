@@ -5,15 +5,18 @@ Rails.application.routes.draw do
   resources :users
 
   resources :companions do
-    resources :bookings, only: [:create, :new]
+    resources :bookings, only: [ :new, :create ]
   end
 
   resources :companions do
     resources :reviews, only: [:create, :new]
   end
-
-  resources :bookings, only: [:index, :show, :destroy]
-
-  get "bookings/:id/pending_status", to: "bookings#status", as: :booking_status
-  patch "bookings/:id", to: "bookings#update"
+  resources :bookings, only: [ :index, :update, :destroy, :show] do
+    member do
+      get 'accept'
+    end
+    collection do
+      get 'companion', as: :bookings_as_companion
+    end
+  end
 end

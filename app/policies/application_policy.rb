@@ -9,7 +9,7 @@ class ApplicationPolicy
   end
 
   def index?
-    false
+    true
   end
 
   def show?
@@ -17,7 +17,7 @@ class ApplicationPolicy
   end
 
   def create?
-    false
+    true
   end
 
   def new?
@@ -34,6 +34,14 @@ class ApplicationPolicy
 
   def destroy?
     false
+  end
+
+  def companion?
+    true
+  end
+
+  def accept?
+    @user = @record.companion_id
   end
 
   class Scope
