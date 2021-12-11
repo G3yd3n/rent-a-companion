@@ -8,7 +8,9 @@ Rails.application.routes.draw do
     resources :bookings, only: [:create, :new]
   end
 
-  resources :bookings, only: [:index, :show, :destroy]
+  resources :bookings, only: [:index, :show, :destroy] do
+    resources :reviews, only: [ :new, :create ]
+  end
 
   get "bookings/:id/pending_status", to: "bookings#status", as: :booking_status
   patch "bookings/:id", to: "bookings#update"
