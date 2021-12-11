@@ -8,8 +8,7 @@
       <p class="card-text"><%= @companion.description %></p>
       <p class="card-text">$<%= @companion.price %> per day</p>
       <%= simple_form_for [ @companion, @booking ] do |f| %>
-      <%= f.input :date, :as => :string %>
-      <%= f.input :time, :as => :string %>
+      <%= f.input :date, label: 'Enter date', as: :date, html5: true %>
       <%= f.submit "Submit booking", class: "btn btn-primary" %>
       <% end %>
     </div>

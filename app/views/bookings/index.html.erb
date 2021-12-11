@@ -1,11 +1,11 @@
 <div class="container col-sm-6">
   <ul class="list-inline tabs-underlined">
     <li>
-      <a href="#" class="tab-underlined active">Seeker Bookings</a>
+      <a href="#" class="tab-underlined active">Your Bookings</a>
     </li>
     <% if current_user.companion.present? %>
       <li>
-        <a href="" class="tab-underlined">Companion Bookings</a>
+        <a href="bookings" class="tab-underlined">Companion Bookings</a>
       </li>
     <% else %>
       <li>
@@ -16,6 +16,30 @@
     </li>
   </ul>
 </div>
-<div class="cards">
-  <%= render "seekerbooking" %>
+<div class="container col-sm-6">
+  <div class="cards">
+<% if current_user.companion.present? %>
+  <div class="container col-sm-6">
+    <div class="cards">
+      <div>
+        <%= render "seekerbooking" %>
+      </div>
+    </div>
+  </div>
+  <div class="container col-sm-6">
+    <div class="cards">
+      <div>
+        <%= render "companionbooking" %>
+      </div>
+    </div>
+  </div>
+  <% else %>
+  <div class="container col-sm-6">
+    <div class="cards">
+      <div>
+      <%= render "seekerbooking" %>
+      </div>
+    </div>
+  </div>
+  <% end %>
 </div>

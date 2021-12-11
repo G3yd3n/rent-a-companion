@@ -19,7 +19,7 @@
             <% @companions.each do |companion| %>
               <% @ids << companion.id %>
             <% end %>
-            <%= link_to "Suprise me?", companion_path(@ids.sample), class: "nav-link btn btn-outline-info m-2" %>
+            <%= link_to "Surprise me? 😏", companion_path(@ids.sample), class: "nav-link btn btn-outline-info m-2" %>
           </li>
           <li class="nav-item dropdown">
             <img class="avatar dropdown-toggle m-2" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://robohash.org/companion" />

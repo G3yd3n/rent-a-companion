@@ -64,12 +64,13 @@
 
 .card-product {
   overflow: hidden;
-  height: 120px;
+  height: 150px;
+  width: 250px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
-  align-items: center;
   object-fit: cover;
+  text-align: left;
 }
 
 .card-product img {
@@ -77,6 +78,7 @@
   width: 120px;
   object-fit: cover;
 }
+
 
 .card-product h2 {
   font-size: 16px;
@@ -93,5 +95,5 @@
 }
 
 .card-product .card-product-infos {
-  padding: 16px;
+  padding: 5px;
 }
